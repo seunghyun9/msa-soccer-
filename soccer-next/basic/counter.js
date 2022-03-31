@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useSelector,useDispatch } from 'react-redux';
-import styles from 'counter.module.css';
+import styles from 'basic/style/counter.module.css';
 
 export default function Counter() {
   const [count, setCount] = useState(0)

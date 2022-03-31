@@ -8,7 +8,7 @@ export default function Nav(){
         <li className={styles.li}> <Link href='/'>Home</Link> </li>
         <li className={styles.li}> <Link href='admin/dashboard'>DashBoard</Link> </li>
 
-        <li className={styles.li}> <Link href='common/components/basic-link'>Basic</Link> </li>
+        <li className={styles.li}> <Link href='basic/basic'>Basic</Link> </li>
 
         
         <li className={styles.li}> <Link href='user/index'>User</Link> </li>
