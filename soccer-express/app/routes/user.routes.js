@@ -17,7 +17,7 @@ module.exports = function(app){
   });
   //next();
   app.get("", ()=>{})
-  app.post("", ()=>{})
+  app.post("http://localhost:5000/api/board/write", (req,res)=>{})
   app.update("", ()=>{})
   app.delets("", ()=>{})
 

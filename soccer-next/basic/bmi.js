@@ -1,3 +1,4 @@
+import axios from "axios";
 import style from "board/style/board-form.module.css"
 import React, { useState } from 'react';
 export default function Bmi() {
@@ -18,7 +19,12 @@ export default function Bmi() {
     }
     const handleSubmit = e => {
         e.preventDefault()
-        alert(`BMI : ${ JSON.stringify(inputs) }`)/*  */
+        alert(`BMI : ${ JSON.stringify(inputs) }`)
+        axios.post('http://localhost:5000/api/basic/bmi', inputs)
+        .then(res => {
+            alert(JSON.stringify(res.data))
+        })
+        .catch(err => alert(err))
     }
     return (<div>
         <htmlForm action="">
