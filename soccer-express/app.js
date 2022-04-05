@@ -10,10 +10,10 @@ app.use(express.json());
 app.use(cors()); 
 const APP = './app/routes'
 require(`${APP}/board.route`)({url:'/api/board',app})
-require(`${APP}/todo.route`)({url:'/api/todo',app})
+//require(`${APP}/todo.route`)({url:'/api/todo',app})
 require(`${APP}/user.route`)({url:'/api/user',app})
-require(`${APP}/game.route`)({url:'/api/game',app})
-require(`${APP}/admin.route`)({url:'/api/admin',app})
+//require(`${APP}/game.route`)({url:'/api/game',app})
+//require(`${APP}/admin.route`)({url:'/api/admin',app})
 require(`${APP}/basic.route`)({url:'/api/basic',app})
 
 const corsOptions = {
@@ -40,31 +40,6 @@ app.get('/', (req, res) => {
 })
 app.get('/api/now', cors(corsOptions),(req, res) => {
   res.json({"now":new Date().toLocaleString()})
-})
-
-function caculator(num1,opcode,num2){
-  /*const {num1,opcode,num2} = payload*/
-  let _num1 = Number(num1);
-  let _num2 = Number(num2);
-  let _opcode = opcode;
-  var result = {num1, opcode, num2}
-  if (opcode == "+") {
-    result.res = _num1 + _num2 }
-  else if (opcode == "-") {
-    result.res = _num1 - _num2 }
-  else if (opcode == "*") {
-    result.res = _num1 * _num2 }
-  else if (opcode == "/") {
-    result.res = _num1 / _num2 }
-  else if (opcode == "%") {
-    result.res = _num1 % _num2 }
-  return result
-  }
-
-app.post("/api/basic/calc", (req, res)=>{
-  const {num1, opcode, num2} = req.body
-  const json = caculator(num1, opcode, num2)
-  res.json(json)
 })
 
 

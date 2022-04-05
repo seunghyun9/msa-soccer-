@@ -21,3 +21,22 @@ exports.bmi = (payload) => {
         console.log(`계산끝난 값들 : ${JSON.stringify(result)}`)
     return result
 }
+ exports.calc=(num1,opcode,num2) => {
+    /*const {num1,opcode,num2} = payload*/
+    let _num1 = Number(num1);
+    let _num2 = Number(num2);
+    let _opcode = opcode;
+    var result = {num1, opcode, num2}
+    if (opcode == "+") {
+      result.res = _num1 + _num2 }
+    else if (opcode == "-") {
+      result.res = _num1 - _num2 }
+    else if (opcode == "*") {
+      result.res = _num1 * _num2 }
+    else if (opcode == "/") {
+      result.res = _num1 / _num2 }
+    else if (opcode == "%") {
+      result.res = _num1 % _num2 }
+    return result
+    }
+  
