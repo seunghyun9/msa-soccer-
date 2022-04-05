@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 export default function Bmi() {
-
+    const proxy ='http://localhost:5000'
     const [inputs, setInputs] = useState({})
 
-    const onChange = e => {
+    const handleChange = e => {
         e.preventDefault()
         const { value, name } = e.target
         setInputs({ ...inputs, [name]: value })
@@ -12,7 +12,7 @@ export default function Bmi() {
 
     const handleSubmit = e => {
         e.preventDefault()
-        axios.post('http://localhost:5000/api/basic/bmi', inputs)
+        axios.post(proxy +'/api/basic/bmi', inputs)
         .then(res => {
             const bmi = res.data
             document.getElementById('result-span').innerHTML = `
@@ -29,13 +29,13 @@ export default function Bmi() {
             <h1>BMI</h1>
             <div>
                 <label htmlFor="">이름</label>
-                <input type="text" name="name" onChange={onChange} /><br />
+                <input type="text" name="name" onChange={handleChange} /><br />
 
                 <label htmlFor="">키</label>
-                <input type="text" name="height" onChange={onChange} /><br />
+                <input type="text" name="height" onChange={handleChange} /><br />
 
                 <label htmlFor="">몸무게</label>
-                <input type="text" name="weight" onChange={onChange} /><br />
+                <input type="text" name="weight" onChange={handleChange} /><br />
                 <input type="submit" value="BMI 체크" /><br />
             </div>
         </form>
