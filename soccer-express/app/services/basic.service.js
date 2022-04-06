@@ -1,5 +1,5 @@
-exports.bmi = (payload) => {
-    const {name, height, weight} = payload
+exports.bmi = (name, height, weight) => {
+    //const {name, height, weight} = payload
     //Obtain user inputs
     let _height=Number(height);
     let _weight=Number(weight);

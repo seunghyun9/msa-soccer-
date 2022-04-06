@@ -1,9 +1,12 @@
+const db = require('../models/index')
+const UserSchema = db.user
 exports.singup= (req, res)=>{
-    const {username, password, name, telephone} = req.body
-    console.log(`넘어온 JSON 값 : ${JSON.stringify(req.body)}`)
-    console.log(`ID : ${username}`)
-    console.log(`PASSWORD : ${password}`)
-    console.log(`NAME : ${name}`)
-    console.log(`TEL : ${telephone}`)
-    res.status(200).json({'result':'ok'})
-  }
+  new UserSchema({
+    username: req.body.username, 
+    password: req.body.password, 
+    name: req.body.name, 
+    telephone: req.body.telephone
+}).save(()=>{
+    res.status(200).json({'result':'ok'}) 
+})
+}
