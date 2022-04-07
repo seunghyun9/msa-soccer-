@@ -1,8 +1,6 @@
  /**const mongoose = require('mongoose')
 package.json에서 필요한것만 가져온다. 경량화 */
-module.exports = mongoose => {
-    const UserSchema = mongoose.model(
-        'user',
+module.exports = mongoose => mongoose.model('user',
         mongoose.Schema(
             {
                 username : String,
@@ -12,5 +10,5 @@ module.exports = mongoose => {
             }, {timestamps:true}
         )
     )
-    return UserSchema
-}
+
+

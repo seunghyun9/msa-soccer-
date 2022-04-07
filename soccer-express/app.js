@@ -1,17 +1,17 @@
 require('dotenv').config();
-const cors = require('cors')
-const express = require('express');
+const cors = require('cors') // 순수함수 cors > cors
+const express = require('express'); //순수함수 express > express
 const app = express();
 const { port, MONGO_URI } = process.env;
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json()); //서플라이 
 app.use(cors()); 
 const APP = './app/routes'
 const nodes = ['basic','board','user'] // ['admin','basic','board','game','todo','user']
 for(const leaf of nodes){
   require(`${APP}/${leaf}.route`)({url:`/api/${leaf}`,app})
-}
+} // 파라미터값을 모두 확인한다. array문이라서for -of문 bur json이면 for in사용
 const corsOptions = {
   origin: 'http://localhost:3000',
   optionsSuccessStatus: 200 
