@@ -12,7 +12,7 @@ export default function TeamForm(){
         setInputs({...inputs, [name]: value}) /*JSON >"name": "식빵" , [name]은 변하지 않는 값(상수)이고 value 는 변하는 값(변수)  상태를 저장해줌*/
     }
     
-    const handleClick = e => {
+    const handleSubmit = e => {
         e.preventDefault()
         alert(`등록할 게시글 : ${ JSON.stringify(inputs) }`)
         axios.post('http://localhost:5000/api/board/write', inputs)
@@ -24,9 +24,9 @@ export default function TeamForm(){
         req는 헤드와 바디로 이루어져있다. 데이터는 보통 바디에 찍혀져있음. req.body , req은 아규먼트*/
     }
     return (<>
+    <form action="" onSubmit={handleSubmit} >
         <h1>게시글 등록</h1>
         <div className={style.container}>
-            <htmlForm action="">
             <div className={style.row}>
                 <div className={style.col25}>
                 <label className={style.label} htmlFor="passengerId">게시글 작성자 ID</label>
@@ -68,11 +68,11 @@ export default function TeamForm(){
             </div>
             <br/>
             <div className={style.row}>
-                <input type="submit" onClick={handleClick} className={style.inputSubmit}
-                value="Submit"/>
+                <input type="submit" className={style.inputSubmit} value="Submit"/>
             </div>
-            </htmlForm> 
             </div>
+            </form>
+            
     </>)
 }
 /** style={{height:200 + "px"}} >상수값을 넣으려고 했으나 제이슨으로 넣었음 */

@@ -2,7 +2,6 @@ import axios from "axios"
 import React, { useState } from 'react';
 export default function SignUp(){
     const [inputs, setInputs] = useState({})
-    const {name} = inputs
     const handlechange = e => {
         e.preventDefault()
         const { value, name } = e.target
@@ -12,13 +11,9 @@ export default function SignUp(){
         e.preventDefault()
         alert(`${name}님의 회원가입을 축하합니다.`)
         axios.post('http://localhost:5000/api/user/sign-up', inputs)
-        .then(res => {
-            const signup = res.data
-            document.getElementById('result-span').innerHTML = `
-            <h3>${signup.name}님의 회원가입을 축하합니다.</h3>
-            `
-        })
-        .catch(err => alert(err))
+        .then(res=>{
+            alert(`결과: ${res.data.result}`)
+        }).catch(err=>{alert(err)})
     }
 
     return (
