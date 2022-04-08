@@ -1,7 +1,7 @@
 import axios from "axios"
 import React, { useEffect, useState } from 'react';
 import styles from "user/style/UserList.module.css";
-    
+import Link from 'next/link'    
 
 const Table = ({columns,colspan,data }) => {
     return (
