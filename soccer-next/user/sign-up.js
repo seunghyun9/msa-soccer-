@@ -2,6 +2,7 @@ import axios from "axios"
 import React, { useState } from 'react';
 export default function SignUp(){
     const [inputs, setInputs] = useState({})
+    const name = inputs
     const handlechange = e => {
         e.preventDefault()
         const { value, name } = e.target
